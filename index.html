@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>ArcSight SOP CheckList by alienone</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>ArcSight SOP CheckList</h1>
+        <h2>Rudiment ArcSight SOP Checklist Along With Fundamental Troubleshooting &amp; Solutions  </h2>
+
+        <section id="downloads">
+          <a href="https://github.com/alienone/ArcSightSOPS/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/alienone/ArcSightSOPS/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/alienone/ArcSightSOPS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h3>
+<a name="connector-sensor-tier-health-checks" class="anchor" href="#connector-sensor-tier-health-checks"><span class="octicon octicon-link"></span></a>Connector Sensor Tier Health Checks</h3>
+
+<ul>
+<li><a href="http://www.hpenterprisesecurity.com/collateral/HP_ArcSight_Supported_Products.pdf">Current ArcSight Smart Connector Supported Devices </a></li>
+<li>UP/Down Check</li>
+<li>Connector Event Rate Check </li>
+<li>Cache Check </li>
+<li>Log Check </li>
+<li>Configuration Check </li>
+</ul><h3>
+<a name="connector-appliance-management-tier-health-checks" class="anchor" href="#connector-appliance-management-tier-health-checks"><span class="octicon octicon-link"></span></a>Connector Appliance Management Tier Health Checks</h3>
+
+<ul>
+<li>CPU &amp; Memory Check </li>
+<li>Network Settings Check </li>
+<li>Configuration Backup Check </li>
+</ul><h3>
+<a name="enterprise-security-manageresm-application-tier-health-checks" class="anchor" href="#enterprise-security-manageresm-application-tier-health-checks"><span class="octicon octicon-link"></span></a>Enterprise Security Manager(ESM) Application Tier Health Checks</h3>
+
+<ul>
+<li>Event Throughput Dashboard Check </li>
+<li>Current Event Sources Dashboard Check </li>
+<li>CPU/Memory Utilization Check </li>
+<li>Active/Session List Utilization Check </li>
+<li>Rules Engine Check </li>
+<li>Event Persistence Performance Check(Event Insertion Rate)</li>
+<li>Error Check </li>
+<li>Scheduled Task Check </li>
+<li>server.properties Check </li>
+<li>Agent &amp; Console Threads Check </li>
+</ul><h3>
+<a name="oracle-data-tier-health-checks" class="anchor" href="#oracle-data-tier-health-checks"><span class="octicon octicon-link"></span></a>Oracle Data Tier Health Checks</h3>
+
+<ul>
+<li>DBCheck &amp; Oracle RDA</li>
+<li>Database Performance Statistics Dashboard </li>
+<li>Partition Check</li>
+<li>Trend Job Check </li>
+<li>Hardware and Operating System Check </li>
+<li>CPU &amp; Memory Utilization Check </li>
+<li>Oracle Version and Patch Level Check </li>
+<li>Oracle Alert Log Check </li>
+<li>Oracle Memory Parameters Check </li>
+<li>ESM Database Storage Check </li>
+</ul><h3>
+<a name="some-troubleshooting-fundamentals-and-solutions" class="anchor" href="#some-troubleshooting-fundamentals-and-solutions"><span class="octicon octicon-link"></span></a>Some Troubleshooting Fundamentals and Solutions</h3>
+
+<h4>
+<a name="connectivity-between-the-esm-and-oracle-data-tier-lost" class="anchor" href="#connectivity-between-the-esm-and-oracle-data-tier-lost"><span class="octicon octicon-link"></span></a>Connectivity between the ESM and Oracle data tier lost</h4>
+
+<ul>
+<li>The ESM will generate an <strong>ERROR</strong> event within $ARCSIGHT_HOME/logs/default/server.std.log</li>
+</ul><pre><code>ERROR:java.sql.SQLException: Got minus one from a read call
+</code></pre>
+
+<ul>
+<li>Perform the following troubleshooting actions from the Oracle node of the ESM Architecture 
+NOTE: utilize the <strong>oracle</strong> user account!!</li>
+</ul><pre><code>sqlplus '/ as sysdba' 
+SQL&gt; select instance_name, status, from gv$instance;
+</code></pre>
+
+<ul>
+<li>Next Check the status of the Oracle listener to ensure that the listener is in state <strong>LISTENING</strong>
+</li>
+</ul><pre><code>cd $ARCSIGHT_DB_HOME/db/bin
+./arcdbutil lsnrctl status
+</code></pre>
+
+<ul>
+<li>From the Oracle node of the ESM Architecture check <strong>sqlnet.ora</strong> ensure TCP.INVITED_NODES parameter allows the ESM hostname</li>
+</ul><pre><code>cat $ORACLE_HOME/OraHome11g/network/admin/sqlnet.ora
+</code></pre>
+
+<ul>
+<li>Next from the ESM system </li>
+</ul><pre><code>telnet oracle.hostname.com 1521
+</code></pre>
+
+<h4>
+<a name="determine-the-startup-time-of-the-oracle-arcsight-database-instance" class="anchor" href="#determine-the-startup-time-of-the-oracle-arcsight-database-instance"><span class="octicon octicon-link"></span></a>Determine the Startup Time of the Oracle ArcSight database instance</h4>
+
+<p>NOTE: As the <strong>oracle</strong> user</p>
+
+<pre><code>select to_char(startup_time, 'HH24:MI DD-MON-YY') "Startup Time"
+from v$instance
+/
+</code></pre>
+
+<h4>
+<a name="determine-from-sql-current-database-size-and-available-free-space" class="anchor" href="#determine-from-sql-current-database-size-and-available-free-space"><span class="octicon octicon-link"></span></a>Determine from SQL current Database size and available free space</h4>
+
+<p>NOTE: As the <strong>oracle</strong> user copy and past on the Oracle node the following script and name the file 
+<strong>check_current_free.sql</strong>
+<a href="https://gist.github.com/alienone/8031362/raw/c79fe2cb39122fc58e437690eda68a1f002b6d54/check_current_free.sql">check_current_free.sql</a></p>
+
+<pre><code>vim check_current_free.sql
+I #(INSERT)
+:wq! #(WRITE AND QUIT FILE)
+
+sqlplus '/ as sysdba'
+!ls 
+@check_current_free.sql
+</code></pre>
+
+<h4>
+<a name="determine-available-space-for-each-table-space-within-a-given-oracle-db-instance" class="anchor" href="#determine-available-space-for-each-table-space-within-a-given-oracle-db-instance"><span class="octicon octicon-link"></span></a>Determine available space for each table space within a given Oracle DB instance</h4>
+
+<p>NOTE: As the <strong>oracle</strong> user - download and save the following script: <a href="https://gist.github.com/alienone/8031427/raw/73943d970cace46d357966055d77b2cc5c9fd95a/free_space_table.sql">free_space_table.sql</a></p>
+
+<pre><code>vim check_current_free.sql
+I #(INSERT)
+:wq! #(WRITE AND QUIT FILE)
+
+sqlplus '/ as sysdba'
+!ls 
+@free_space_table.sql
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
