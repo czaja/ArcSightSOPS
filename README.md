@@ -1,6 +1,6 @@
 ### Connector Sensor Tier Health Checks
 * [Current ArcSight Smart Connector Supported Devices ](http://www.hpenterprisesecurity.com/collateral/HP_ArcSight_Supported_Products.pdf)
-* UP/Down Check
+* UP/Down Check 
 * Connector Event Rate Check 
 * Cache Check 
 * Log Check 
@@ -34,6 +34,11 @@
 * Oracle Alert Log Check 
 * Oracle Memory Parameters Check 
 * ESM Database Storage Check 
+
+### HP/ArcSight Support URL Reference
+* [Software/Patches](https://support.openview.hp.com/selfsolve/patches)
+* [Knowledge Base](http://support.openview.hp.com/selfsolve/documents)
+* [Support Center](http://support.openview.hp.com/casemanager/incident-index)
 
 ### Some Troubleshooting Fundamentals and Solutions
 
