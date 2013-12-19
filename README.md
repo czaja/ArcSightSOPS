@@ -43,6 +43,18 @@
 ### Some Troubleshooting Fundamentals and Solutions
 
 
+#### Detecting Excessive IOWAIT 
+
+* SSH to the Oracle node within the ArcSight Architecture 
+
+```
+iostat 5 -c
+```
+
+* IOWAIT of 5% of less is fine 
+* IOWAIT greater than 5% is bad
+
+
 #### How to determine the IP Address of the Oracle node within Veritas Cluster
 
 * The Oracle node IP address will be the IP Address that the ESM IP Address is connected to on TCP Port 1521, unless Oracle listener has been configured to listen on a non-standard TCP Port. 
