@@ -51,7 +51,7 @@
 iostat 5 -c
 ```
 
-* IOWAIT of 5% of less is fine 
+* IOWAIT of 5% or less is fine 
 * IOWAIT greater than 5% is bad
 
 
