@@ -49,7 +49,7 @@
 * NOTE: If your ESM is running under the non-privledged user account 'arcsight' ensure you are the arcsight user while performing the following procedure. 
 
 ```
-ssh esm_node 
+ssh arcsight@esm_node 
 cd $ARCSIGHT_MANAGER_HOME/bin/scripts 
 ../arcsight resetpwd
 admin
