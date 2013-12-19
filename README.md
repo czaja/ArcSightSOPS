@@ -43,6 +43,15 @@
 ### Some Troubleshooting Fundamentals and Solutions
 
 
+#### Tailing ESM Exceptions
+
+```
+ssh arcsight@esm_node 
+cd $ARCSIGHT_MANAGER_HOME/logs/default
+tail -f server.std.log ../../bin/./arcsight exceptions
+```
+
+
 #### Detecting Excessive IOWAIT 
 
 * SSH to the Oracle node within the ArcSight Architecture 
