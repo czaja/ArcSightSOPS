@@ -48,7 +48,7 @@
 ```
 ssh arcsight@esm_node 
 cd $ARCSIGHT_MANAGER_HOME/logs/default
-tail -f server.std.log ../../bin/./arcsight exceptions
+tail -f server.std.log | ../../bin/./arcsight exceptions
 ```
 
 
