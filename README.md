@@ -43,6 +43,17 @@
 ### Some Troubleshooting Fundamentals and Solutions
 
 
+#### How to determine the IP Address of the Oracle node within Veritas Cluster
+
+* The Oracle node IP address will be the IP Address that the ESM IP Address is connected to on TCP Port 1521, unless Oracle listener has been configured to listen on a non-standard TCP Port. 
+
+```
+ssh arcsight@esm_node 
+netstat -an | grep 1521 | grep ESTABLISHED
+10.0.0.3:20783   10.0.0.4:1521   ESTABLISHED
+```
+
+
 #### How to reset the ArcSight ESM admin password if forgotten or disabled/locked out
 
 * SSH to the ESM node within your ArcSight architecture
