@@ -42,6 +42,26 @@
 
 ### Some Troubleshooting Fundamentals and Solutions
 
+
+#### How to reset the ArcSight ESM admin password if forgotten or disabled/locked out
+
+* SSH to the ESM node within your ArcSight architecture
+* NOTE: If your ESM is running under the non-privledged user account 'arcsight' ensure you are the arcsight user while performing the following procedure. 
+
+```
+ssh esm_node 
+cd $ARCSIGHT_MANAGER_HOME/bin/scripts 
+../arcsight resetpwd
+admin
+ENTER NEW PASSWD
+REPEAT
+Yes
+```
+
+* Now you should be able to login to the ArcSight Console with the 'admin' user account utilizing the new password
+
+
+
 #### Connectivity between the ESM and Oracle data tier lost 
 
 * The ESM will generate an **ERROR** event within $ARCSIGHT_HOME/logs/default/server.std.log
@@ -113,3 +133,4 @@ sqlplus '/ as sysdba'
 !ls 
 @free_space_table.sql
 ``` 
+
