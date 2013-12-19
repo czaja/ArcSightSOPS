@@ -84,6 +84,14 @@
 <a name="some-troubleshooting-fundamentals-and-solutions" class="anchor" href="#some-troubleshooting-fundamentals-and-solutions"><span class="octicon octicon-link"></span></a>Some Troubleshooting Fundamentals and Solutions</h3>
 
 <h4>
+<a name="tailing-esm-exceptions" class="anchor" href="#tailing-esm-exceptions"><span class="octicon octicon-link"></span></a>Tailing ESM Exceptions</h4>
+
+<pre><code>ssh arcsight@esm_node 
+cd $ARCSIGHT_MANAGER_HOME/logs/default
+tail -f server.std.log ../../bin/./arcsight exceptions
+</code></pre>
+
+<h4>
 <a name="detecting-excessive-iowait" class="anchor" href="#detecting-excessive-iowait"><span class="octicon octicon-link"></span></a>Detecting Excessive IOWAIT</h4>
 
 <ul>
