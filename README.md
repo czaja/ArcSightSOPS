@@ -40,6 +40,57 @@
 * [Knowledge Base](http://support.openview.hp.com/selfsolve/documents)
 * [Support Center](http://support.openview.hp.com/casemanager/incident-index)
 
+### Useful Rudiment Linux Command Line Strings 
+
+* From the ArcSight ESM Determine State of ESM to Oracle Communications - Private Network Interface
+
+```
+lsof -i TCP:1521
+tcpdump -i bond1.114 dst port 1521
+```
+
+* From ArcSight ESM Determine State of Smart Connector or ArcSight Loggers Feeding - Public Network Interface 
+
+```
+lsof -i TCP:8443 
+tcpdump –I bond0:244:0 dst port 8443 
+```
+
+
+### Important ArcSight $PATH Locations 
+
+* ArcSight Manager $HOME 
+
+```
+/opt/arcsight/manager/manager-5.5
+```
+
+* ArcSight DB HOME
+
+```
+/opt/arcsight/db/db-5.5
+```
+
+* Oracle 11g $HOME
+
+```
+/opt/oracle/OraHome11g
+```
+
+### Important ArcSight $LOG Locations 
+
+* ArcSight Manager $LOGS
+
+```
+/opt/arcsight/db/db-5.5/logs/default 
+```
+
+* Oracle 11g Alert $LOG
+
+```
+/opt/oracle/OraHome11g/diag/rdbms/arcsight/arcsight/trace/alert_arcsight.log
+```
+
 ### Some Troubleshooting Fundamentals and Solutions
 
 
