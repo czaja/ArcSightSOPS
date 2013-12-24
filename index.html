@@ -81,6 +81,52 @@
 <li><a href="http://support.openview.hp.com/selfsolve/documents">Knowledge Base</a></li>
 <li><a href="http://support.openview.hp.com/casemanager/incident-index">Support Center</a></li>
 </ul><h3>
+<a name="useful-rudiment-linux-command-line-strings" class="anchor" href="#useful-rudiment-linux-command-line-strings"><span class="octicon octicon-link"></span></a>Useful Rudiment Linux Command Line Strings</h3>
+
+<ul>
+<li>From the ArcSight ESM Determine State of ESM to Oracle Communications - Private Network Interface</li>
+</ul><pre><code>lsof -i TCP:1521
+tcpdump -i bond1.114 dst port 1521
+</code></pre>
+
+<ul>
+<li>From ArcSight ESM Determine State of Smart Connector or ArcSight Loggers Feeding - Public Network Interface </li>
+</ul><pre><code>lsof -i TCP:8443 
+tcpdump –I bond0:244:0 dst port 8443 
+</code></pre>
+
+<h3>
+<a name="important-arcsight-path-locations" class="anchor" href="#important-arcsight-path-locations"><span class="octicon octicon-link"></span></a>Important ArcSight $PATH Locations</h3>
+
+<ul>
+<li>ArcSight Manager $HOME </li>
+</ul><pre><code>/opt/arcsight/manager/manager-5.5
+</code></pre>
+
+<ul>
+<li>ArcSight DB HOME</li>
+</ul><pre><code>/opt/arcsight/db/db-5.5
+</code></pre>
+
+<ul>
+<li>Oracle 11g $HOME</li>
+</ul><pre><code>/opt/oracle/OraHome11g
+</code></pre>
+
+<h3>
+<a name="important-arcsight-log-locations" class="anchor" href="#important-arcsight-log-locations"><span class="octicon octicon-link"></span></a>Important ArcSight $LOG Locations</h3>
+
+<ul>
+<li>ArcSight Manager $LOGS</li>
+</ul><pre><code>/opt/arcsight/db/db-5.5/logs/default 
+</code></pre>
+
+<ul>
+<li>Oracle 11g Alert $LOG</li>
+</ul><pre><code>/opt/oracle/OraHome11g/diag/rdbms/arcsight/arcsight/trace/alert_arcsight.log
+</code></pre>
+
+<h3>
 <a name="some-troubleshooting-fundamentals-and-solutions" class="anchor" href="#some-troubleshooting-fundamentals-and-solutions"><span class="octicon octicon-link"></span></a>Some Troubleshooting Fundamentals and Solutions</h3>
 
 <h4>
