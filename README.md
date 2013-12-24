@@ -40,7 +40,23 @@
 * [Knowledge Base](http://support.openview.hp.com/selfsolve/documents)
 * [Support Center](http://support.openview.hp.com/casemanager/incident-index)
 
-### Startup ArcSight Enterprise Security Manager Via Commandline 
+### Stop|Start ArcSight Enterprise Security Manager Gracefully 
+
+* Note ensure you are the **arcsight** user. 
+
+* To gracefully stop the ArcSight ESM
+
+```
+/etc/init.d/./arcsight_manager stop
+```
+
+* To gracefully start the ArcSight ESM
+
+```
+/etc/init.d/./arcsight_manager start
+```
+
+### Startup ArcSight Enterprise Security Manager Via Commandline for Troubleshooting Purposes **ONLY**
 
 * Note ensure you are the **arcsight** user. The **&** backgrounds the process. 
 
