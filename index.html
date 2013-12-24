@@ -81,6 +81,15 @@
 <li><a href="http://support.openview.hp.com/selfsolve/documents">Knowledge Base</a></li>
 <li><a href="http://support.openview.hp.com/casemanager/incident-index">Support Center</a></li>
 </ul><h3>
+<a name="startup-arcsight-enterprise-security-manager-via-commandline" class="anchor" href="#startup-arcsight-enterprise-security-manager-via-commandline"><span class="octicon octicon-link"></span></a>Startup ArcSight Enterprise Security Manager Via Commandline</h3>
+
+<ul>
+<li>Note ensure you are the <strong>arcsight</strong> user. The <strong>&amp;</strong> backgrounds the process. </li>
+</ul><pre><code>cd /opt/arcsight/manager/manager-5.5/bin/
+./arcsight manager &amp;
+</code></pre>
+
+<h3>
 <a name="useful-rudiment-linux-command-line-strings" class="anchor" href="#useful-rudiment-linux-command-line-strings"><span class="octicon octicon-link"></span></a>Useful Rudiment Linux Command Line Strings</h3>
 
 <ul>
@@ -118,7 +127,7 @@ tcpdump –I bond0:244:0 dst port 8443
 
 <ul>
 <li>ArcSight Manager $LOGS</li>
-</ul><pre><code>/opt/arcsight/db/db-5.5/logs/default 
+</ul><pre><code>/opt/arcsight/manager/manager-5.5/logs/default/server.std.log 
 </code></pre>
 
 <ul>
