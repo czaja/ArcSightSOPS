@@ -40,6 +40,15 @@
 * [Knowledge Base](http://support.openview.hp.com/selfsolve/documents)
 * [Support Center](http://support.openview.hp.com/casemanager/incident-index)
 
+### Startup ArcSight Enterprise Security Manager Via Commandline 
+
+* Note ensure you are the **arcsight** user. The **&** backgrounds the process. 
+
+```
+cd /opt/arcsight/manager/manager-5.5/bin/
+./arcsight manager &
+```
+
 ### Useful Rudiment Linux Command Line Strings 
 
 * From the ArcSight ESM Determine State of ESM to Oracle Communications - Private Network Interface
@@ -82,7 +91,7 @@ tcpdump –I bond0:244:0 dst port 8443
 * ArcSight Manager $LOGS
 
 ```
-/opt/arcsight/db/db-5.5/logs/default 
+/opt/arcsight/manager/manager-5.5/logs/default/server.std.log 
 ```
 
 * Oracle 11g Alert $LOG
