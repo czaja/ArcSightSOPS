@@ -40,6 +40,21 @@
 * [Knowledge Base](http://support.openview.hp.com/selfsolve/documents)
 * [Support Center](http://support.openview.hp.com/casemanager/incident-index)
 
+### Procedure to TroubleShoot ESM State Up/Down
+
+```
+ssh arcsight@arcsight_esm 
+sudo su - 
+lsof -i TCP:1521
+```
+
+* Note if there is no **ESTABLISHED** communication with **Oracle**
+
+```
+/etc/init.d/./arcsight_manager stop; tail -f /opt/arcsight/manager/manager-5.5/logs/default/server.std.log
+/etc/init.d/./arcsight_manager start; tail -f /opt/arcsight/manager/manager-5.5/logs/default/server.std.log
+```
+
 ### Stop|Start ArcSight Enterprise Security Manager Gracefully 
 
 * Note ensure you are the **arcsight** user. 
