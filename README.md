@@ -36,7 +36,7 @@
 * ESM Database Storage Check 
 
 ### HP/ArcSight Support URL Reference
-* [Software/Patches](https://support.openview.hp.com/selfsolve/patches)
+* [Software/Patches](https://h20575.www2.hp.com/usbportal/softwareupdate.do)
 * [Knowledge Base](http://support.openview.hp.com/selfsolve/documents)
 * [Support Center](http://support.openview.hp.com/casemanager/incident-index)
 
