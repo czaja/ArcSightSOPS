@@ -271,3 +271,8 @@ sqlplus '/ as sysdba'
 ./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/cacerts
 ```
 
+#### Import CA Signed CSR 
+```
+./keytool -import -trustcacerts -alias mydomain -file mydomain.crt -keystore /apps/arcsight/manager/jre/lib/security/cacerts
+```
+
