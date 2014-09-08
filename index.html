@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -285,6 +285,14 @@ I #(INSERT)
 sqlplus '/ as sysdba'
 !ls 
 @free_space_table.sql
+</code></pre>
+
+<h4>
+<a name="manually-generate-new-tls-keys-to-include-csr" class="anchor" href="#manually-generate-new-tls-keys-to-include-csr"><span class="octicon octicon-link"></span></a>Manually Generate New TLS Keys to Include CSR</h4>
+
+<pre><code>./keytool -genkeypair -alias YOURORG -keyalg RSA -keysize 2048 -dname "CN=yourorg.example.com, OU=YOURORG, O=Cyber Security, L=New York, S=NY, C=US" -validity 1095 -keypass some_password -keystore /apps/arcsight/manager/jre/lib/security/cacerts -storepass changeit -storetype jks
+
+./keytool -certreq -alias Target -keystore /apps/arcsight/manager/jre/lib/security/cacerts -file arcsight_target.csr
 </code></pre>
         </section>
 
