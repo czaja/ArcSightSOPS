@@ -300,6 +300,12 @@ sqlplus '/ as sysdba'
 
 <pre><code>./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/cacerts
 </code></pre>
+
+<h4>
+<a name="import-ca-signed-csr" class="anchor" href="#import-ca-signed-csr"><span class="octicon octicon-link"></span></a>Import CA Signed CSR</h4>
+
+<pre><code>./keytool -import -trustcacerts -alias mydomain -file mydomain.crt -keystore /apps/arcsight/manager/jre/lib/security/cacerts
+</code></pre>
         </section>
 
         <aside id="sidebar">
