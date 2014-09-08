@@ -263,7 +263,7 @@ sqlplus '/ as sysdba'
 ```
 ./keytool -genkeypair -alias YOURORG -keyalg RSA -keysize 2048 -dname "CN=yourorg.example.com, OU=YOURORG, O=Cyber Security, L=New York, S=NY, C=US" -validity 1095 -keypass some_password -keystore /apps/arcsight/manager/jre/lib/security/cacerts -storepass changeit -storetype jks
 
-./keytool -certreq -alias Target -keystore /apps/arcsight/manager/jre/lib/security/cacerts -file arcsight_target.csr
+./keytool -certreq -alias YOURORG -keystore /apps/arcsight/manager/jre/lib/security/cacerts -file arcsight_target.csr
 ```
 
 #### List Generated Key by Alias 
