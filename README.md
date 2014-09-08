@@ -266,3 +266,8 @@ sqlplus '/ as sysdba'
 ./keytool -certreq -alias Target -keystore /apps/arcsight/manager/jre/lib/security/cacerts -file arcsight_target.csr
 ```
 
+#### List Generated Key by Alias 
+```
+./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/cacerts
+```
+
