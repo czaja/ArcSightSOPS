@@ -288,23 +288,25 @@ sqlplus '/ as sysdba'
 </code></pre>
 
 <h4>
-<a name="manually-generate-new-tls-keys-to-include-csr" class="anchor" href="#manually-generate-new-tls-keys-to-include-csr"><span class="octicon octicon-link"></span></a>Manually Generate New TLS Keys to Include CSR</h4>
+<a name="manual-java-keytool---keys---certificate-signing-request---certificate-chain-trust-import---ca-root-import" class="anchor" href="#manual-java-keytool---keys---certificate-signing-request---certificate-chain-trust-import---ca-root-import"><span class="octicon octicon-link"></span></a>Manual Java KeyTool - Keys - Certificate Signing Request - Certificate Chain Trust Import - CA Root Import</h4>
 
-<pre><code>./keytool -genkeypair -alias YOURORG -keyalg RSA -keysize 2048 -dname "CN=yourorg.example.com, OU=YOURORG, O=Cyber Security, L=New York, S=NY, C=US" -validity 1095 -keypass some_password -keystore /apps/arcsight/manager/jre/lib/security/keystore.request -storepass changeit -storetype jks
+<pre><code>cd /apps/arcsight/manager/jre/bin
 
-./keytool -certreq -alias YOURORG -keystore /apps/arcsight/manager/jre/lib/security/keystore.request -file arcsight_target.csr
-</code></pre>
+cp ../../config/jetty/keystore ../../config/jetty/keystore.bak.`date +'%m%d%Y'`
 
-<h4>
-<a name="list-generated-key-by-alias" class="anchor" href="#list-generated-key-by-alias"><span class="octicon octicon-link"></span></a>List Generated Key by Alias</h4>
+cp ../../config/jetty/keystore ../../config/jetty/keystore.request
 
-<pre><code>./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/keystore.request
-</code></pre>
+./keytool -genkeypair -keyalg rsa -keysize 2048 -dname "CN=&lt;your-fqdn&gt;, OU=&lt;your-org&gt;, O=&lt;your-org-unit&gt;, L=&lt;your-city&gt;, S=&lt;your-state&gt;, C=&lt;your-country-code&gt;" -validity 1095 -keystore /apps/arcsight/manager/config/jetty/keystore.request -storepass &lt;your-password&gt; -alias &lt;your-alias&gt;
 
-<h4>
-<a name="import-ca-signed-csr" class="anchor" href="#import-ca-signed-csr"><span class="octicon octicon-link"></span></a>Import CA Signed CSR</h4>
+./keytool -certreq -alias &lt;yourpassword&gt; -keystore /apps/arcsight/manager/config/jetty/keystore.request -storepass &lt;your-password&gt; -file arcsight.csr
 
-<pre><code>./keytool -import -trustcacerts -alias mydomain -file mydomain.crt -keystore /apps/arcsight/manager/jre/lib/security/cacerts
+./keytool -import -trustcacerts -file certificate.p12 -keystore /apps/arcsight/manager/jre/lib/security/cacerts -storepass &lt;yourpassword&gt; -alias &lt;your-alias&gt;
+
+./keytool -import -alias &lt;your alias&gt; -file ca_signed.crt -keystore /apps/arcsight/manager/config/jetty/keystore.request -storepass &lt;yourpassword&gt; 
+
+cp ../../config/jetty/keystore.request ../../config/jetty/keystore 
+
+./keytool -list -keystore /apps/arcsight/manager/config/jetty/keystore.request -alias &lt;youralias&gt;
 </code></pre>
         </section>
 
