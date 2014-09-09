@@ -258,21 +258,24 @@ sqlplus '/ as sysdba'
 @free_space_table.sql
 ``` 
 
-#### Manually Generate New TLS Keys to Include CSR
+#### Manual Java KeyTool - Keys - Certificate Signing Request - Certificate Chain Trust Import - CA Root Import 
+```
+cd /apps/arcsight/manager/jre/bin
 
-```
-./keytool -genkeypair -alias YOURORG -keyalg RSA -keysize 2048 -dname "CN=yourorg.example.com, OU=YOURORG, O=Cyber Security, L=New York, S=NY, C=US" -validity 1095 -keypass some_password -keystore /apps/arcsight/manager/jre/lib/security/keystore.request -storepass changeit -storetype jks
+cp ../../config/jetty/keystore ../../config/jetty/keystore.bak.`date +'%m%d%Y'`
 
-./keytool -certreq -alias YOURORG -keystore /apps/arcsight/manager/jre/lib/security/keystore.request -file arcsight_target.csr
-```
+cp ../../config/jetty/keystore ../../config/jetty/keystore.request
 
-#### List Generated Key by Alias 
-```
-./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/keystore.request
-```
+./keytool -genkeypair -keyalg rsa -keysize 2048 -dname "CN=<your-fqdn>, OU=<your-org>, O=<your-org-unit>, L=<your-city>, S=<your-state>, C=<your-country-code>" -validity 1095 -keystore /apps/arcsight/manager/config/jetty/keystore.request -storepass <your-password> -alias <your-alias>
 
-#### Import CA Signed CSR 
-```
-./keytool -import -trustcacerts -alias mydomain -file mydomain.crt -keystore /apps/arcsight/manager/jre/lib/security/cacerts
+./keytool -certreq -alias <yourpassword> -keystore /apps/arcsight/manager/config/jetty/keystore.request -storepass <your-password> -file arcsight.csr
+
+./keytool -import -trustcacerts -file certificate.p12 -keystore /apps/arcsight/manager/jre/lib/security/cacerts -storepass <yourpassword> -alias <your-alias>
+
+./keytool -import -alias <your alias> -file ca_signed.crt -keystore /apps/arcsight/manager/config/jetty/keystore.request -storepass <yourpassword> 
+
+cp ../../config/jetty/keystore.request ../../config/jetty/keystore 
+
+./keytool -list -keystore /apps/arcsight/manager/config/jetty/keystore.request -alias <youralias>
 ```
 
