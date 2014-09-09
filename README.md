@@ -261,14 +261,14 @@ sqlplus '/ as sysdba'
 #### Manually Generate New TLS Keys to Include CSR
 
 ```
-./keytool -genkeypair -alias YOURORG -keyalg RSA -keysize 2048 -dname "CN=yourorg.example.com, OU=YOURORG, O=Cyber Security, L=New York, S=NY, C=US" -validity 1095 -keypass some_password -keystore /apps/arcsight/manager/jre/lib/security/cacerts -storepass changeit -storetype jks
+./keytool -genkeypair -alias YOURORG -keyalg RSA -keysize 2048 -dname "CN=yourorg.example.com, OU=YOURORG, O=Cyber Security, L=New York, S=NY, C=US" -validity 1095 -keypass some_password -keystore /apps/arcsight/manager/jre/lib/security/keystore.request -storepass changeit -storetype jks
 
-./keytool -certreq -alias YOURORG -keystore /apps/arcsight/manager/jre/lib/security/cacerts -file arcsight_target.csr
+./keytool -certreq -alias YOURORG -keystore /apps/arcsight/manager/jre/lib/security/keystore.request -file arcsight_target.csr
 ```
 
 #### List Generated Key by Alias 
 ```
-./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/cacerts
+./keytool -list -alias KEY_ALIAS -keystore /apps/arcsight/manager/jre/lib/security/keystore.request
 ```
 
 #### Import CA Signed CSR 
