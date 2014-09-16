@@ -308,6 +308,62 @@ cp ../../config/jetty/keystore.request ../../config/jetty/keystore
 
 ./keytool -list -keystore /apps/arcsight/manager/config/jetty/keystore.request -alias &lt;youralias&gt;
 </code></pre>
+
+<h4>
+<a name="performance-tuning-arcsight-651" class="anchor" href="#performance-tuning-arcsight-651"><span class="octicon octicon-link"></span></a>Performance Tuning ArcSight 6.5.1</h4>
+
+<ul>
+<li>Disable Red Hat kernel enabled Transparent Huge Pages </li>
+</ul><pre><code>echo never &gt; /sys/kernel/mm/redhat_transparent_hugepage/enabled
+</code></pre>
+
+<ul>
+<li>Set /etc/sysctl parameters for ESM to the following, ensure that these parameters are not already set to other values </li>
+</ul><pre><code>kernel.shmmax = 16642998272
+kernel.shmall = 4160749568
+vm.swappiness=0
+vm.hugetlb_shm_group=500
+vm.nr_hugepages=7168
+vm.min_free_kbytes=131072
+vm.dirty_ratio=8
+vm.dirty_background_ratio=4
+</code></pre>
+
+<ul>
+<li>Add the following ulimit values for the arcsight user to  <strong>/etc/security/limits.d/90-nproc.conf</strong> and to <strong>/etc/security/limits.conf</strong>
+</li>
+</ul><pre><code>@arcsight soft memlock 16252928
+@arcsight hard memlock 16252928
+</code></pre>
+
+<ul>
+<li>Edit  <strong>/opt/arcsight/logger/current/arcsight/logger/bin/scripts/servers.sh</strong>
+</li>
+</ul><pre><code>ARCSIGHT_JVM_OPTIONS="-verbose:gc -Xms256m -Xmx1536m -XX:+UseLargePages -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=utf-8 "
+</code></pre>
+
+<ul>
+<li>Edit <strong>/opt/arcsight/manager/config/server.wrapper.conf</strong>
+</li>
+</ul><pre><code>wrapper.java.additional.12=-XX:+UseLargePages
+</code></pre>
+
+<ul>
+<li>Edit /opt/arcsight/logger/data/mysql/my.cnf</li>
+</ul><pre><code>[mysqld]
+large-pages
+key_buffer_size=1G
+sort_temp_limit = 50G
+innodb_buffer_pool_size = 5G
+``
+
+-   **REBOOT THE SYSTEM**
+</code></pre>
+
+<p>init 6</p>
+
+<pre><code>
+</code></pre>
         </section>
 
         <aside id="sidebar">
