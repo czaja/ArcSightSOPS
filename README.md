@@ -317,6 +317,8 @@ ARCSIGHT_JVM_OPTIONS="-verbose:gc -Xms256m -Xmx1536m -XX:+UseLargePages -XX:+Hea
 
 ```
 wrapper.java.additional.12=-XX:+UseLargePages
+wrapper.java.additional.14=-XX:ReservedCodeCacheSize=256m
+
 ```
 
 * Edit /opt/arcsight/logger/data/mysql/my.cnf
@@ -332,4 +334,12 @@ innodb_buffer_pool_size = 5G
 ```
 init 6
 ```
+
+####Increase the number of ArcSight ESM Log Files 
+
+* Edit **server.properties**
+```
+log.channel.file.property.maxbackupindex=100
+```
+
 
