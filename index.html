@@ -21,7 +21,7 @@
       <div class="inner">
         <h1>ArcSight SOP CheckList</h1>
         <h2>Rudiment ArcSight SOP Checklist </h2>
-        <a href="https://github.com/alienone/ArcSightSOPS" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/alienone/ArcSightSOPS" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -29,7 +29,7 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h3>
-<a name="connector-sensor-tier-health-checks" class="anchor" href="#connector-sensor-tier-health-checks"><span class="octicon octicon-link"></span></a>Connector Sensor Tier Health Checks</h3>
+<a id="connector-sensor-tier-health-checks" class="anchor" href="#connector-sensor-tier-health-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connector Sensor Tier Health Checks</h3>
 
 <ul>
 <li><a href="http://www.hpenterprisesecurity.com/collateral/HP_ArcSight_Supported_Products.pdf">Current ArcSight Smart Connector Supported Devices </a></li>
@@ -38,15 +38,19 @@
 <li>Cache Check </li>
 <li>Log Check </li>
 <li>Configuration Check </li>
-</ul><h3>
-<a name="connector-appliance-management-tier-health-checks" class="anchor" href="#connector-appliance-management-tier-health-checks"><span class="octicon octicon-link"></span></a>Connector Appliance Management Tier Health Checks</h3>
+</ul>
+
+<h3>
+<a id="connector-appliance-management-tier-health-checks" class="anchor" href="#connector-appliance-management-tier-health-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connector Appliance Management Tier Health Checks</h3>
 
 <ul>
 <li>CPU &amp; Memory Check </li>
 <li>Network Settings Check </li>
 <li>Configuration Backup Check </li>
-</ul><h3>
-<a name="enterprise-security-manageresm-application-tier-health-checks" class="anchor" href="#enterprise-security-manageresm-application-tier-health-checks"><span class="octicon octicon-link"></span></a>Enterprise Security Manager(ESM) Application Tier Health Checks</h3>
+</ul>
+
+<h3>
+<a id="enterprise-security-manageresm-application-tier-health-checks" class="anchor" href="#enterprise-security-manageresm-application-tier-health-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enterprise Security Manager(ESM) Application Tier Health Checks</h3>
 
 <ul>
 <li>Event Throughput Dashboard Check </li>
@@ -59,8 +63,10 @@
 <li>Scheduled Task Check </li>
 <li>server.properties Check </li>
 <li>Agent &amp; Console Threads Check </li>
-</ul><h3>
-<a name="oracle-data-tier-health-checks" class="anchor" href="#oracle-data-tier-health-checks"><span class="octicon octicon-link"></span></a>Oracle Data Tier Health Checks</h3>
+</ul>
+
+<h3>
+<a id="oracle-data-tier-health-checks" class="anchor" href="#oracle-data-tier-health-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Oracle Data Tier Health Checks</h3>
 
 <ul>
 <li>DBCheck &amp; Oracle RDA</li>
@@ -73,16 +79,20 @@
 <li>Oracle Alert Log Check </li>
 <li>Oracle Memory Parameters Check </li>
 <li>ESM Database Storage Check </li>
-</ul><h3>
-<a name="hparcsight-support-url-reference" class="anchor" href="#hparcsight-support-url-reference"><span class="octicon octicon-link"></span></a>HP/ArcSight Support URL Reference</h3>
+</ul>
+
+<h3>
+<a id="hparcsight-support-url-reference" class="anchor" href="#hparcsight-support-url-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>HP/ArcSight Support URL Reference</h3>
 
 <ul>
 <li><a href="https://protect724.hp.com/community/arcsight/productdocs">Documentation</a></li>
 <li><a href="https://h20575.www2.hp.com/usbportal/softwareupdate.do">Software/Patches</a></li>
 <li><a href="http://support.openview.hp.com/selfsolve/documents">Knowledge Base</a></li>
 <li><a href="http://support.openview.hp.com/casemanager/incident-index">Support Center</a></li>
-</ul><h3>
-<a name="procedure-to-troubleshoot-esm-state-updown" class="anchor" href="#procedure-to-troubleshoot-esm-state-updown"><span class="octicon octicon-link"></span></a>Procedure to TroubleShoot ESM State Up/Down</h3>
+</ul>
+
+<h3>
+<a id="procedure-to-troubleshoot-esm-state-updown" class="anchor" href="#procedure-to-troubleshoot-esm-state-updown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Procedure to TroubleShoot ESM State Up/Down</h3>
 
 <pre><code>ssh arcsight@arcsight_esm 
 sudo su - 
@@ -92,85 +102,107 @@ lsof -i TCP:1521
 <ul>
 <li>Note if there is no <strong>ESTABLISHED</strong> communication with <strong>Oracle</strong>
 </li>
-</ul><pre><code>/etc/init.d/./arcsight_manager stop; tail -f /opt/arcsight/manager/manager-5.5/logs/default/server.std.log
+</ul>
+
+<pre><code>/etc/init.d/./arcsight_manager stop; tail -f /opt/arcsight/manager/manager-5.5/logs/default/server.std.log
 /etc/init.d/./arcsight_manager start; tail -f /opt/arcsight/manager/manager-5.5/logs/default/server.std.log
 </code></pre>
 
 <h3>
-<a name="stopstart-arcsight-enterprise-security-manager-gracefully" class="anchor" href="#stopstart-arcsight-enterprise-security-manager-gracefully"><span class="octicon octicon-link"></span></a>Stop|Start ArcSight Enterprise Security Manager Gracefully</h3>
+<a id="stopstart-arcsight-enterprise-security-manager-gracefully" class="anchor" href="#stopstart-arcsight-enterprise-security-manager-gracefully" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stop|Start ArcSight Enterprise Security Manager Gracefully</h3>
 
 <ul>
 <li><p>Note ensure you are the <strong>arcsight</strong> user. </p></li>
 <li><p>To gracefully stop the ArcSight ESM</p></li>
-</ul><pre><code>/etc/init.d/./arcsight_manager stop
+</ul>
+
+<pre><code>/etc/init.d/./arcsight_manager stop
 </code></pre>
 
 <ul>
 <li>To gracefully start the ArcSight ESM</li>
-</ul><pre><code>/etc/init.d/./arcsight_manager start
+</ul>
+
+<pre><code>/etc/init.d/./arcsight_manager start
 </code></pre>
 
 <h3>
-<a name="startup-arcsight-enterprise-security-manager-via-commandline-for-troubleshooting-purposes-only" class="anchor" href="#startup-arcsight-enterprise-security-manager-via-commandline-for-troubleshooting-purposes-only"><span class="octicon octicon-link"></span></a>Startup ArcSight Enterprise Security Manager Via Commandline for Troubleshooting Purposes <strong>ONLY</strong>
+<a id="startup-arcsight-enterprise-security-manager-via-commandline-for-troubleshooting-purposes-only" class="anchor" href="#startup-arcsight-enterprise-security-manager-via-commandline-for-troubleshooting-purposes-only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Startup ArcSight Enterprise Security Manager Via Commandline for Troubleshooting Purposes <strong>ONLY</strong>
 </h3>
 
 <ul>
 <li>Note ensure you are the <strong>arcsight</strong> user. The <strong>&amp;</strong> backgrounds the process. </li>
-</ul><pre><code>cd /opt/arcsight/manager/manager-5.5/bin/
+</ul>
+
+<pre><code>cd /opt/arcsight/manager/manager-5.5/bin/
 ./arcsight manager &amp;
 </code></pre>
 
 <h3>
-<a name="useful-rudiment-linux-command-line-strings" class="anchor" href="#useful-rudiment-linux-command-line-strings"><span class="octicon octicon-link"></span></a>Useful Rudiment Linux Command Line Strings</h3>
+<a id="useful-rudiment-linux-command-line-strings" class="anchor" href="#useful-rudiment-linux-command-line-strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Rudiment Linux Command Line Strings</h3>
 
 <ul>
 <li>From the ArcSight ESM Determine State of ESM to Oracle Communications - Private Network Interface</li>
-</ul><pre><code>lsof -i TCP:1521
+</ul>
+
+<pre><code>lsof -i TCP:1521
 tcpdump -i bond1.114 dst port 1521
 </code></pre>
 
 <ul>
 <li>From ArcSight ESM Determine State of Smart Connector or ArcSight Loggers Feeding - Public Network Interface </li>
-</ul><pre><code>lsof -i TCP:8443 
+</ul>
+
+<pre><code>lsof -i TCP:8443 
 tcpdump –I bond0:244:0 dst port 8443 
 </code></pre>
 
 <h3>
-<a name="important-arcsight-path-locations" class="anchor" href="#important-arcsight-path-locations"><span class="octicon octicon-link"></span></a>Important ArcSight $PATH Locations</h3>
+<a id="important-arcsight-path-locations" class="anchor" href="#important-arcsight-path-locations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important ArcSight $PATH Locations</h3>
 
 <ul>
 <li>ArcSight Manager $HOME </li>
-</ul><pre><code>/opt/arcsight/manager/manager-5.5
+</ul>
+
+<pre><code>/opt/arcsight/manager/manager-5.5
 </code></pre>
 
 <ul>
 <li>ArcSight DB HOME</li>
-</ul><pre><code>/opt/arcsight/db/db-5.5
+</ul>
+
+<pre><code>/opt/arcsight/db/db-5.5
 </code></pre>
 
 <ul>
 <li>Oracle 11g $HOME</li>
-</ul><pre><code>/opt/oracle/OraHome11g
+</ul>
+
+<pre><code>/opt/oracle/OraHome11g
 </code></pre>
 
 <h3>
-<a name="important-arcsight-log-locations" class="anchor" href="#important-arcsight-log-locations"><span class="octicon octicon-link"></span></a>Important ArcSight $LOG Locations</h3>
+<a id="important-arcsight-log-locations" class="anchor" href="#important-arcsight-log-locations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important ArcSight $LOG Locations</h3>
 
 <ul>
 <li>ArcSight Manager $LOGS</li>
-</ul><pre><code>/opt/arcsight/manager/manager-5.5/logs/default/server.std.log 
+</ul>
+
+<pre><code>/opt/arcsight/manager/manager-5.5/logs/default/server.std.log 
 </code></pre>
 
 <ul>
 <li>Oracle 11g Alert $LOG</li>
-</ul><pre><code>/opt/oracle/OraHome11g/diag/rdbms/arcsight/arcsight/trace/alert_arcsight.log
+</ul>
+
+<pre><code>/opt/oracle/OraHome11g/diag/rdbms/arcsight/arcsight/trace/alert_arcsight.log
 </code></pre>
 
 <h3>
-<a name="some-troubleshooting-fundamentals-and-solutions" class="anchor" href="#some-troubleshooting-fundamentals-and-solutions"><span class="octicon octicon-link"></span></a>Some Troubleshooting Fundamentals and Solutions</h3>
+<a id="some-troubleshooting-fundamentals-and-solutions" class="anchor" href="#some-troubleshooting-fundamentals-and-solutions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Troubleshooting Fundamentals and Solutions</h3>
 
 <h4>
-<a name="tailing-esm-exceptions" class="anchor" href="#tailing-esm-exceptions"><span class="octicon octicon-link"></span></a>Tailing ESM Exceptions</h4>
+<a id="tailing-esm-exceptions" class="anchor" href="#tailing-esm-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tailing ESM Exceptions</h4>
 
 <pre><code>ssh arcsight@esm_node 
 cd $ARCSIGHT_MANAGER_HOME/logs/default
@@ -178,33 +210,41 @@ tail -f server.std.log | ../../bin/./arcsight exceptions
 </code></pre>
 
 <h4>
-<a name="detecting-excessive-iowait" class="anchor" href="#detecting-excessive-iowait"><span class="octicon octicon-link"></span></a>Detecting Excessive IOWAIT</h4>
+<a id="detecting-excessive-iowait" class="anchor" href="#detecting-excessive-iowait" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detecting Excessive IOWAIT</h4>
 
 <ul>
 <li>SSH to the Oracle node within the ArcSight Architecture </li>
-</ul><pre><code>iostat 5 -c
+</ul>
+
+<pre><code>iostat 5 -c
 </code></pre>
 
 <ul>
 <li>IOWAIT of 5% or less is fine </li>
 <li>IOWAIT greater than 5% is bad</li>
-</ul><h4>
-<a name="how-to-determine-the-ip-address-of-the-oracle-node-within-veritas-cluster" class="anchor" href="#how-to-determine-the-ip-address-of-the-oracle-node-within-veritas-cluster"><span class="octicon octicon-link"></span></a>How to determine the IP Address of the Oracle node within Veritas Cluster</h4>
+</ul>
+
+<h4>
+<a id="how-to-determine-the-ip-address-of-the-oracle-node-within-veritas-cluster" class="anchor" href="#how-to-determine-the-ip-address-of-the-oracle-node-within-veritas-cluster" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to determine the IP Address of the Oracle node within Veritas Cluster</h4>
 
 <ul>
 <li>The Oracle node IP address will be the IP Address that the ESM IP Address is connected to on TCP Port 1521, unless Oracle listener has been configured to listen on a non-standard TCP Port. </li>
-</ul><pre><code>ssh arcsight@esm_node 
+</ul>
+
+<pre><code>ssh arcsight@esm_node 
 netstat -an | grep 1521 | grep ESTABLISHED
 10.0.0.3:20783   10.0.0.4:1521   ESTABLISHED
 </code></pre>
 
 <h4>
-<a name="how-to-reset-the-arcsight-esm-admin-password-if-forgotten-or-disabledlocked-out" class="anchor" href="#how-to-reset-the-arcsight-esm-admin-password-if-forgotten-or-disabledlocked-out"><span class="octicon octicon-link"></span></a>How to reset the ArcSight ESM admin password if forgotten or disabled/locked out</h4>
+<a id="how-to-reset-the-arcsight-esm-admin-password-if-forgotten-or-disabledlocked-out" class="anchor" href="#how-to-reset-the-arcsight-esm-admin-password-if-forgotten-or-disabledlocked-out" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to reset the ArcSight ESM admin password if forgotten or disabled/locked out</h4>
 
 <ul>
 <li>SSH to the ESM node within your ArcSight architecture</li>
 <li>NOTE: If your ESM is running under the non-privledged user account 'arcsight' ensure you are the arcsight user while performing the following procedure. </li>
-</ul><pre><code>ssh arcsight@esm_node 
+</ul>
+
+<pre><code>ssh arcsight@esm_node 
 cd $ARCSIGHT_MANAGER_HOME/bin/scripts 
 ../arcsight resetpwd
 admin
@@ -215,40 +255,52 @@ Yes
 
 <ul>
 <li>Now you should be able to login to the ArcSight Console with the 'admin' user account utilizing the new password</li>
-</ul><h4>
-<a name="connectivity-between-the-esm-and-oracle-data-tier-lost" class="anchor" href="#connectivity-between-the-esm-and-oracle-data-tier-lost"><span class="octicon octicon-link"></span></a>Connectivity between the ESM and Oracle data tier lost</h4>
+</ul>
+
+<h4>
+<a id="connectivity-between-the-esm-and-oracle-data-tier-lost" class="anchor" href="#connectivity-between-the-esm-and-oracle-data-tier-lost" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity between the ESM and Oracle data tier lost</h4>
 
 <ul>
 <li>The ESM will generate an <strong>ERROR</strong> event within $ARCSIGHT_HOME/logs/default/server.std.log</li>
-</ul><pre><code>ERROR:java.sql.SQLException: Got minus one from a read call
+</ul>
+
+<pre><code>ERROR:java.sql.SQLException: Got minus one from a read call
 </code></pre>
 
 <ul>
 <li>Perform the following troubleshooting actions from the Oracle node of the ESM Architecture 
 NOTE: utilize the <strong>oracle</strong> user account!!</li>
-</ul><pre><code>sqlplus '/ as sysdba' 
+</ul>
+
+<pre><code>sqlplus '/ as sysdba' 
 SQL&gt; select instance_name, status, from gv$instance;
 </code></pre>
 
 <ul>
 <li>Next Check the status of the Oracle listener to ensure that the listener is in state <strong>LISTENING</strong>
 </li>
-</ul><pre><code>cd $ARCSIGHT_DB_HOME/db/bin
+</ul>
+
+<pre><code>cd $ARCSIGHT_DB_HOME/db/bin
 ./arcdbutil lsnrctl status
 </code></pre>
 
 <ul>
 <li>From the Oracle node of the ESM Architecture check <strong>sqlnet.ora</strong> ensure TCP.INVITED_NODES parameter allows the ESM hostname</li>
-</ul><pre><code>cat $ORACLE_HOME/OraHome11g/network/admin/sqlnet.ora
+</ul>
+
+<pre><code>cat $ORACLE_HOME/OraHome11g/network/admin/sqlnet.ora
 </code></pre>
 
 <ul>
 <li>Next from the ESM system </li>
-</ul><pre><code>telnet oracle.hostname.com 1521
+</ul>
+
+<pre><code>telnet oracle.hostname.com 1521
 </code></pre>
 
 <h4>
-<a name="determine-the-startup-time-of-the-oracle-arcsight-database-instance" class="anchor" href="#determine-the-startup-time-of-the-oracle-arcsight-database-instance"><span class="octicon octicon-link"></span></a>Determine the Startup Time of the Oracle ArcSight database instance</h4>
+<a id="determine-the-startup-time-of-the-oracle-arcsight-database-instance" class="anchor" href="#determine-the-startup-time-of-the-oracle-arcsight-database-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Determine the Startup Time of the Oracle ArcSight database instance</h4>
 
 <p>NOTE: As the <strong>oracle</strong> user</p>
 
@@ -258,7 +310,7 @@ from v$instance
 </code></pre>
 
 <h4>
-<a name="determine-from-sql-current-database-size-and-available-free-space" class="anchor" href="#determine-from-sql-current-database-size-and-available-free-space"><span class="octicon octicon-link"></span></a>Determine from SQL current Database size and available free space</h4>
+<a id="determine-from-sql-current-database-size-and-available-free-space" class="anchor" href="#determine-from-sql-current-database-size-and-available-free-space" aria-hidden="true"><span class="octicon octicon-link"></span></a>Determine from SQL current Database size and available free space</h4>
 
 <p>NOTE: As the <strong>oracle</strong> user copy and past on the Oracle node the following script and name the file 
 <strong>check_current_free.sql</strong>
@@ -274,7 +326,7 @@ sqlplus '/ as sysdba'
 </code></pre>
 
 <h4>
-<a name="determine-available-space-for-each-table-space-within-a-given-oracle-db-instance" class="anchor" href="#determine-available-space-for-each-table-space-within-a-given-oracle-db-instance"><span class="octicon octicon-link"></span></a>Determine available space for each table space within a given Oracle DB instance</h4>
+<a id="determine-available-space-for-each-table-space-within-a-given-oracle-db-instance" class="anchor" href="#determine-available-space-for-each-table-space-within-a-given-oracle-db-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Determine available space for each table space within a given Oracle DB instance</h4>
 
 <p>NOTE: As the <strong>oracle</strong> user - download and save the following script: <a href="https://gist.github.com/alienone/8031427/raw/73943d970cace46d357966055d77b2cc5c9fd95a/free_space_table.sql">free_space_table.sql</a></p>
 
@@ -288,7 +340,7 @@ sqlplus '/ as sysdba'
 </code></pre>
 
 <h4>
-<a name="manual-java-keytool---keys---certificate-signing-request---certificate-chain-trust-import---ca-root-import" class="anchor" href="#manual-java-keytool---keys---certificate-signing-request---certificate-chain-trust-import---ca-root-import"><span class="octicon octicon-link"></span></a>Manual Java KeyTool - Keys - Certificate Signing Request - Certificate Chain Trust Import - CA Root Import</h4>
+<a id="manual-java-keytool---keys---certificate-signing-request---certificate-chain-trust-import---ca-root-import" class="anchor" href="#manual-java-keytool---keys---certificate-signing-request---certificate-chain-trust-import---ca-root-import" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Java KeyTool - Keys - Certificate Signing Request - Certificate Chain Trust Import - CA Root Import</h4>
 
 <pre><code>cd /apps/arcsight/manager/jre/bin
 
@@ -310,16 +362,20 @@ cp ../../config/jetty/keystore.request ../../config/jetty/keystore
 </code></pre>
 
 <h4>
-<a name="performance-tuning-arcsight-651" class="anchor" href="#performance-tuning-arcsight-651"><span class="octicon octicon-link"></span></a>Performance Tuning ArcSight 6.5.1</h4>
+<a id="performance-tuning-arcsight-651" class="anchor" href="#performance-tuning-arcsight-651" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance Tuning ArcSight 6.5.1</h4>
 
 <ul>
 <li>Disable Red Hat kernel enabled Transparent Huge Pages </li>
-</ul><pre><code>echo never &gt; /sys/kernel/mm/redhat_transparent_hugepage/enabled
+</ul>
+
+<pre><code>echo never &gt; /sys/kernel/mm/redhat_transparent_hugepage/enabled
 </code></pre>
 
 <ul>
 <li>Set /etc/sysctl parameters for ESM to the following, ensure that these parameters are not already set to other values </li>
-</ul><pre><code>kernel.shmmax = 16642998272
+</ul>
+
+<pre><code>kernel.shmmax = 16642998272
 kernel.shmall = 4160749568
 vm.swappiness=0
 vm.hugetlb_shm_group=500
@@ -332,25 +388,35 @@ vm.dirty_background_ratio=4
 <ul>
 <li>Add the following ulimit values for the arcsight user to  <strong>/etc/security/limits.d/90-nproc.conf</strong> and to <strong>/etc/security/limits.conf</strong>
 </li>
-</ul><pre><code>@arcsight soft memlock 16252928
+</ul>
+
+<pre><code>@arcsight soft memlock 16252928
 @arcsight hard memlock 16252928
 </code></pre>
 
 <ul>
 <li>Edit  <strong>/opt/arcsight/logger/current/arcsight/logger/bin/scripts/servers.sh</strong>
 </li>
-</ul><pre><code>ARCSIGHT_JVM_OPTIONS="-verbose:gc -Xms256m -Xmx1536m -XX:+UseLargePages -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=utf-8 "
+</ul>
+
+<pre><code>ARCSIGHT_JVM_OPTIONS="-verbose:gc -Xms256m -Xmx1536m -XX:+UseLargePages -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=utf-8 "
 </code></pre>
 
 <ul>
 <li>Edit <strong>/opt/arcsight/manager/config/server.wrapper.conf</strong>
 </li>
-</ul><pre><code>wrapper.java.additional.12=-XX:+UseLargePages
+</ul>
+
+<pre><code>wrapper.java.additional.12=-XX:+UseLargePages
+wrapper.java.additional.14=-XX:ReservedCodeCacheSize=256m
+
 </code></pre>
 
 <ul>
 <li>Edit /opt/arcsight/logger/data/mysql/my.cnf</li>
-</ul><pre><code>[mysqld]
+</ul>
+
+<pre><code>[mysqld]
 large-pages
 key_buffer_size=1G
 sort_temp_limit = 50G
@@ -363,6 +429,15 @@ innodb_buffer_pool_size = 5G
 <p>init 6</p>
 
 <pre><code>
+####Increase the number of ArcSight ESM Log Files 
+
+* Edit **server.properties**
+</code></pre>
+
+<p>log.channel.file.property.maxbackupindex=100</p>
+
+<pre><code>
+
 </code></pre>
         </section>
 
