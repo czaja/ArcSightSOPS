@@ -317,7 +317,7 @@ ARCSIGHT_JVM_OPTIONS="-verbose:gc -Xms256m -Xmx1536m -XX:+UseLargePages -XX:+Hea
 
 ```
 wrapper.java.additional.12=-XX:+UseLargePages
-wrapper.java.additional.14=-XX:ReservedCodeCacheSize=256m
+wrapper.java.additional.13=-XX:ReservedCodeCacheSize=256m
 
 ```
 
