@@ -437,15 +437,18 @@ innodb_buffer_pool_size = 5G
 <p>log.channel.file.property.maxbackupindex=100</p>
 
 <pre><code>
-####Fixing SerializationException Error Problem Set - Impacts all versions of AS SC to current 7.0.6
-* Delete any cached events from the smart connector cache under **$CONNECTOR_HOME/user/agent/agentdata**
+####Fixing SerializationException Error Problem Set Impacts all versions of AS SC to current 7.0.6
+
+* Delete any cached events from the smart connector cache under $CONNECTOR_HOME/user/agent/agentdata
 * Add the following parameters to a given smart connector agent.properties file
+
 </code></pre>
 
 <p>serializer.check.string.bytes=true
 size.use.utf8.bytes=true</p>
 
-<pre><code>* Restart the smart connector 
+<pre><code>
+* Restart the smart connector 
 </code></pre>
         </section>
 
