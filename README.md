@@ -342,4 +342,11 @@ init 6
 log.channel.file.property.maxbackupindex=100
 ```
 
-
+####Fixing SerializationException Error Problem Set - Impacts all versions of AS SC to current 7.0.6
+* Delete any cached events from the smart connector cache under **$CONNECTOR_HOME/user/agent/agentdata**
+* Add the following parameters to a given smart connector agent.properties file
+```
+serializer.check.string.bytes=true
+size.use.utf8.bytes=true
+```
+* Restart the smart connector 
