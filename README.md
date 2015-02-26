@@ -328,9 +328,9 @@ large-pages
 key_buffer_size=1G
 sort_temp_limit = 50G
 innodb_buffer_pool_size = 5G
-``
+```
 
--	**REBOOT THE SYSTEM**
+*	**REBOOT THE SYSTEM**
 ```
 init 6
 ```
