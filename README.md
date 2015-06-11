@@ -353,3 +353,9 @@ size.use.utf8.bytes=true
 ```
 
 * Restart the smart connector 
+
+####Logfu Set JVM Memory 
+
+```
+ARCSIGHT_JVM_OPTION=-Xmx1024m
+```
