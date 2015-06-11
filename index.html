@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <!--[if lt IE 9]>
@@ -421,34 +421,47 @@ large-pages
 key_buffer_size=1G
 sort_temp_limit = 50G
 innodb_buffer_pool_size = 5G
-``
-
--   **REBOOT THE SYSTEM**
 </code></pre>
 
-<p>init 6</p>
+<ul>
+<li>  <strong>REBOOT THE SYSTEM</strong>
+</li>
+</ul>
 
-<pre><code>
-####Increase the number of ArcSight ESM Log Files 
-
-* Edit **server.properties**
+<pre><code>init 6
 </code></pre>
 
-<p>log.channel.file.property.maxbackupindex=100</p>
+<h4>
+<a id="increase-the-number-of-arcsight-esm-log-files" class="anchor" href="#increase-the-number-of-arcsight-esm-log-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Increase the number of ArcSight ESM Log Files</h4>
 
-<pre><code>
-####Fixing SerializationException Error Problem Set Impacts all versions of AS SC to current 7.0.6
+<ul>
+<li>Edit <strong>server.properties</strong>
+</li>
+</ul>
 
-* Delete any cached events from the smart connector cache under $CONNECTOR_HOME/user/agent/agentdata
-* Add the following parameters to a given smart connector agent.properties file
-
+<pre><code>log.channel.file.property.maxbackupindex=100
 </code></pre>
 
-<p>serializer.check.string.bytes=true
-size.use.utf8.bytes=true</p>
+<h4>
+<a id="fixing-serializationexception-error-problem-set-impacts-all-versions-of-as-sc-to-current-706" class="anchor" href="#fixing-serializationexception-error-problem-set-impacts-all-versions-of-as-sc-to-current-706" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fixing SerializationException Error Problem Set Impacts all versions of AS SC to current 7.0.6</h4>
 
-<pre><code>
-* Restart the smart connector 
+<ul>
+<li>Delete any cached events from the smart connector cache under $CONNECTOR_HOME/user/agent/agentdata</li>
+<li>Add the following parameters to a given smart connector agent.properties file</li>
+</ul>
+
+<pre><code>serializer.check.string.bytes=true
+size.use.utf8.bytes=true
+</code></pre>
+
+<ul>
+<li>Restart the smart connector </li>
+</ul>
+
+<h4>
+<a id="logfu-set-jvm-memory" class="anchor" href="#logfu-set-jvm-memory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logfu Set JVM Memory</h4>
+
+<pre><code>ARCSIGHT_JVM_OPTION=-Xmx1024m
 </code></pre>
         </section>
 
