@@ -278,6 +278,19 @@ cp ../../config/jetty/keystore.request ../../config/jetty/keystore
 
 ./keytool -list -keystore /apps/arcsight/manager/config/jetty/keystore.request -alias <youralias>
 ```
+####Export ESM TLS Certificate Via Command Line
+
+  **From ESM Keystore**
+
+```
+$MANAGER_HOME/./arcsight keytool -store managerkeys -exportcert -alias mykey -file /home/arcsight/esm.cer
+```
+
+  **From Smart Connector Keystore***
+
+```
+$SMART_CONNECTOR_HOME/./arcsight agent keytool -store clientcerts -importcert -alias mykey -file /home/arcsight/esm.cer
+```
 
 ####Performance Tuning ArcSight 6.5.1 
 
