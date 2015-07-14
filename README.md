@@ -372,3 +372,25 @@ size.use.utf8.bytes=true
 ```
 ARCSIGHT_JVM_OPTION=-Xmx1024m
 ```
+
+####Hot Rod ArcSight Logger Forwarders/Syslog Smart Connectors - newest model AS 6.x Logger software/appliance 
+
+* agent.wrapper.conf 
+
+```
+# Initial Java Heap Size (in MB)
+wrapper.java.initmemory=512
+
+# Maximum Java Heap Size (in MB)
+wrapper.java.maxmemory=4096
+```
+
+* agent.properties 
+
+```
+http.transport.threadcount=12
+http.transport.multithreaded=true   
+eventcache.scanforsize=false
+http.transport.queuesize=8000
+syslog.max.device.count=50000
+```
