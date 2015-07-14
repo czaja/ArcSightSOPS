@@ -468,6 +468,31 @@ size.use.utf8.bytes=true
 <pre><code>ARCSIGHT_JVM_OPTION=-Xmx1024m
 </code></pre>
 
+<h4>
+<a id="hot-rod-arcsight-logger-forwarderssyslog-smart-connectors---newest-model-as-6x-logger-softwareappliance" class="anchor" href="#hot-rod-arcsight-logger-forwarderssyslog-smart-connectors---newest-model-as-6x-logger-softwareappliance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hot Rod ArcSight Logger Forwarders/Syslog Smart Connectors - newest model AS 6.x Logger software/appliance</h4>
+
+<ul>
+<li>agent.wrapper.conf </li>
+</ul>
+
+<pre><code># Initial Java Heap Size (in MB)
+wrapper.java.initmemory=512
+
+# Maximum Java Heap Size (in MB)
+wrapper.java.maxmemory=4096
+</code></pre>
+
+<ul>
+<li>agent.properties </li>
+</ul>
+
+<pre><code>http.transport.threadcount=12
+http.transport.multithreaded=true   
+eventcache.scanforsize=false
+http.transport.queuesize=8000
+syslog.max.device.count=50000
+</code></pre>
+
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/alienone/ArcSightSOPS">ArcSight SOP CheckList</a> is maintained by <a href="https://github.com/alienone">alienone</a>.</span>
 
